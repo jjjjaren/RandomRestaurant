@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10137.1" systemVersion="15D21" minimumToolsVersion="Automatic">
+    <entity name="Activity" representedClassName=".Activity" syncable="YES">
+        <attribute name="date" attributeType="Date" syncable="YES"/>
+        <attribute name="uuid" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="restaurant" maxCount="1" deletionRule="Nullify" destinationEntity="Restaurant" inverseName="activities" inverseEntity="Restaurant" syncable="YES"/>
+    </entity>
+    <entity name="Category" representedClassName=".Category" syncable="YES">
+        <attribute name="createDate" attributeType="Date" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="uuid" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="restaurants" toMany="YES" deletionRule="Nullify" destinationEntity="Restaurant" inverseName="categories" inverseEntity="Restaurant" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+            <uniquenessConstraint>
+                <constraint value="uuid"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Restaurant" representedClassName=".Restaurant" syncable="YES">
+        <attribute name="createDate" attributeType="Date" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="updateDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="uuid" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="activities" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Activity" inverseName="restaurant" inverseEntity="Activity" syncable="YES"/>
+        <relationship name="categories" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Category" inverseName="restaurants" inverseEntity="Category" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Activity" positionX="-54" positionY="9" width="128" height="90"/>
+        <element name="Restaurant" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Category" positionX="-54" positionY="27" width="128" height="105"/>
+    </elements>
+</model>
