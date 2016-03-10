@@ -1,0 +1,2 @@
+// Restaurant.js
+"use strict";

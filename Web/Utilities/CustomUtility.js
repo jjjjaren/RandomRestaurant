@@ -1,0 +1,2 @@
+// CustomUtility.js
+"use strict";

@@ -1,0 +1,2 @@
+// BaseManager.js
+"use strict";

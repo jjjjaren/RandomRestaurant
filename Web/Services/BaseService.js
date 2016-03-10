@@ -1,0 +1,2 @@
+// BaseService.js
+"use strict";
